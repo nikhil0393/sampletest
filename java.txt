@@ -1,0 +1,3125 @@
+switch syntax
+-------------
+switch (expression)
+{
+   case opt1: sts;break;
+   case opt2: sts;break;
+   case opt3: sts;break;
+   ....
+   ....
+   case optn: sts;break;
+   default: sts;
+	    System.exit(1); 
+}
+
+Points on switch statement
+--------------------------
+-deafult can be anywhere btw options and is optional
+-expression should be of type int (byte/short/char)
+-From Java 7 expression can be of type String
+
+Loop
+----
+Loops are used to execute the set of statements repeatedly when the condition is true.
+
+While Loop
+----------
+while(i<=10)
+{
+   System.out.println("Enter a number");
+   n = s.nextInt();
+   if(n>big)
+   big = n;
+   i++;
+}
+
+do while loop
+-------------
+-If the value o fcondition is known in the loop statements then it is suggested to use
+ do..while loop.
+syntax
+------
+do
+{
+   SOP("Enter a number");
+   n = s.nextInt();
+   sum=sum+n;
+}while(n != 0);
+SOP("Sum= "+sum);
+
+forLoop
+-------
+for(int i=1;i<=10;i++)
+{
+   SOP(i);
+}
+
+eg:
+for(int i=1;i<=10;i++);
+   SOP(i);//error
+
+eg:
+int i;
+for(int i=1;i<=10;i++);
+   SOP(i);//11
+
+
+Object oriented concepts:
+-------------------------
+-objects
+-classes
+-Abstraction
+-Encapsulation
+-Inheritance
+-Polymorphism
+
+Object
+------
+An object is a real time entity which has identity, state and behaviour
+Class:
+------
+A class is a collection of related objects, data members and methods.
+
+eg:
+class Employee
+{
+  //Data members
+   int empNum
+   String empName
+   float empSalary;
+   //Methods
+   void setEmpDetails()  //void means no return type
+   {}
+   void dispEmpDetails()
+   {}
+} 
+
+The members(data members/methods) of the class are accessed using objects with dot(.)
+
+Creating objects:
+-----------------
+syntax
+------
+className objName = new ClassName();
+
+eg:
+Employee e = new Employee();
+
+e.empNum = 111;
+e.empName="Nikhil";
+e.setEmpDetails();
+
+
+Rules for identifiers (variables/method/class)
+----------------------------------------------
+- can contain A-Z,a-z,0-9, _, $
+- cannot start with a digit(0-9)
+-cannot be a keyword
+
+Data types:
+-----------
+-Primitive data types
+-Reference data types
+	-Arrays, String, Classes
+
+Casting:
+------
+converting from one primitive typeto another primitive type or one refernce type to another reference type is cating
+Types
+-----
+1.Implicit casting
+-----------------
+Converting lower data type to higher datatype
+eg: int n =100;
+    long x=n;
+
+    byte b=3;
+    float f=b;
+2.Explicit casting
+------------------
+Converting higher data type to lower data type
+eg:
+long x =150;
+int n=x;//error
+int n=(int)x;//valid
+
+public statci void main(String[] args)
+--------------------------------------
+Static
+------
+Static member are accessed directly with the classname without creating objects.
+	>java Welcome.main(); //main() is added internally when executing
+eg:
+class Sample
+{
+   static int m;
+   int n;
+}
+
+Sample s = new Sample();
+s.n=10; //here n is not static so it is accessed by creating object
+Sample.m=20; //m is static so we can access directly just by classname 
+
+void
+----
+-void means no return type
+-main(0 doesnt return back to JVM
+
+Scanner class:
+--------------
+Scanner s = new Scanner(System.in); //System.in represents keyboard
+
+Methods of Scanner class:
+-------------------------
+-nextInt() = used to read int value
+-nextLong() = Long value
+-nextFloat()
+-nextDouble()
+-next() = used to read String value with no spaces
+-nextLine() = String value with spaces
+eg:
+int n = s.nextInt();
+
+Arrays:
+-------
+-One dimensional Arrays:
+------------------------
+syntax
+------
+datatype[] arrayname;
+or
+datatype arrayname[];
+eg:
+int[] n;
+int n[];
+int n[5]; //error
+
+Memory Allocation
+-----------------
+int[] n = new int[5];
+
+Array inititalization--int[] n = {10,20,30,40,50};
+---------------------
+
+Multidimensional Arrays
+-----------------------
+Collect elements of rows and columns
+
+datatype[][] arrayname;
+or
+datatype arrayname[][];
+or
+datatype[] arrayname[];
+
+eg:
+int[][] n;
+int n[3][3]; //error memory allocatedonly runtime
+int[][] n = new int[][]; //error
+int[][] n = new int[][3]; //error
+
+Refer MultiArraydemo.java
+
+Video-10
+JAVA OOP
+--------
+-class
+-objects
+--------
+When a new object is created for a class, it allocates new memory for all data members of the class and the values in datamembers are default values.
+Default value:
+--------------
+byte,short,int,long => 0;
+char =>' '
+float,double => 0.0
+boolean => false
+reference type(String) => null
+
+-this reference
+---------------
+-this refers to the current object.
+-this reference is generally used to differentiate data members of a class and arguments 
+ of a method when the names are same
+	Refer EmployeeDemo.java
+
+-Constructors
+-------------
+-A constructor is a special method whose name is same as class name which is used to 
+initialize the object and does not return anything not even void
+-In java objects are created using consturctors
+Refer constructorDemo.java
+
+Points on constructor:
+----------------------
+-If a class doesnot contain a constructor, Java creates a default constructor
+eg:
+class Sample
+{
+   Sample(){} //default constructor-added implicitly	
+}
+-If a class contains a parameterized constructor then it is the responsibility of the 
+programmer to add default constructor in the class.
+
+-static keyword
+-Inheritance
+-Polymorphism
+-super reference
+-final keyword
+-Abstract classes
+-Interfaces
+-Packages
+-Access Modifiers
+-Encapsulation
+
+
+Video-11
+Static
+------
+-Static keyword can be used for a variable(datamember) and method.
+-It cannot be used for local variables(declared inside method)
+-It cannot be used for a class
+-Static members are accesible directly with the classname without creating objects.
+-Objects can also access static members
+-A static variable acts as a global variable with in class means all objects of the 
+class can access static variable memory.
+-A static method can access only other static members directly.
+
+Refer StaticDemo.java
+
+Inheritance
+------------
+-Creating a new class from an existing class is Inheritance
+-In Java "extends" keyword is used to create a new class from an existing class
+eg: 
+class Vehicle  //base or Super or Parent class
+{
+  ...
+}
+class car extends Vehicle  //Derived or Sub or child class
+{
+  ...
+}
+
+Types of Inheritance
+--------------------
+Single, Multi level, Hierarchical, Multiple and Hybrid
+- Java doesnt support Multiple Inheritance due to ambiguities, means in java a class 
+can extend only one class
+eg:
+class A
+{}
+class B
+{}
+class C extends A,B  //error
+{}
+
+eg:
+vehicle(car,bike,bus)
+furniture(table,chair)
+fruit(apple,mango)
+account(savingsAccount, currentAccount)
+
+-Inheritance is "is-a" relationship
+
+Refer InheritanceDemo.java
+
+Assignment--6
+
+Video-12
+Polymorphism
+------------
+-Poly means many forms
+Types
+-----
+-Compile time
+	-Method overloading
+-Run time
+	-Method overriding
+
+Method overloading
+------------------
+-Method name is same but signature(no of arguments/type of arguments) is different
+-Applicable both in base class and sub class
+eg:
+area(int,int,int)
+are(int,int)
+are(float,float)
+
+
+Method overriding
+-----------------
+-Both method name and signature are same
+-Applicable only in subclass
+eg:
+class vehicle
+{
+   void drive()
+   {
+	...
+   }
+}
+class Car extends Vehicle
+{
+   void drive() //overridden method
+   {
+
+   }
+}
+
+car c = new Car();
+c.drive();  //invokes drive() of Car
+
+-If a subclass invokes overridden method then it will invoke the method present in 
+subclass
+
+Refer InheritanceDemo2.java
+
+Constructors in Inheritance
+---------------------------
+super reference
+---------------
+-super is used to refer to Base class members from Derived class method
+-super() is the first statement added to every constructor implicitly
+-To call parameterized constructor of Base class from Derived class constructor, call 
+ it explicitly
+-call to super() must be first statement in constructors
+	Refer Inheritancedemo3.java
+
+final keyword
+-------------
+-final keyword is used for variable(datamember/ local variable), method and class
+final variable
+--------------
+-It is a constant means value of variable cannot be modified
+eg:
+  final int MAX_VALUE = 100;
+  MAX_VALUE = 200; //error
+
+final method
+------------
+-It cannot be overridden
+eg:
+class Base
+{
+   final void xxx(){}
+}
+class Derived extends base
+{
+   void xxx(){}  //error
+}
+
+final class
+-----------
+-It cannot be extended or subclassed
+
+eg:
+final class Base{}
+class Derived extends Base{}  //error
+
+Predefined final classes
+------------------------
+System
+String
+Math
+--Wrapper classes--which are also final
+-----------------
+Byte
+Short
+Character
+Integer
+Long
+Float
+Double
+Boolean
+
+ASSIGNMENT--7
+
+Video-13:
+---------
+VV Imp note
+-----------
+If a Base class reference refers to subclass object then it can invoke only the 
+overridden methods of subclass.
+
+eg:
+class Vehicle
+{
+   void drive()
+   {...}
+}
+class Car extends Vehicle
+{
+   void drive()
+   {...}  //overridden method
+   void changeGear()
+   {...}
+}
+Vehicle v = new Car();
+v.drive();  //invokes drive() of Car
+v.changeGear();  //Error can invoke only Overridden methods
+Car c = new Vehicle();  //Error only Base class can refer to Subclass but not the other way
+
+Abstract classes
+----------------
+-It is used to form the rules/specifications
+-A method which is declared is called Abstract method
+-An abstract class can conatin zero or more abstract methods.
+eg:
+	abstract class Sample
+	{
+   		void xxx()  //defined or implmented or concrete method
+   		{...}
+   		abstract void yyy();  //declared method
+	}
+
+-If a class extends abstract class then we need to override all abstract methods else 
+make the class as abstract
+eg:
+	class Sample1 extends Sample
+	{
+   		void yyy()  //overridding abstract method of Base class
+   		{...}
+   		void xxx()
+   		{...}
+	}
+		
+		or
+
+	abstract class Sample2 extends Sample
+	{
+   		void ppp()
+   		{...}
+	}
+-We cannot create objects for abstract classes but we can create references referring 
+ to the subclass object
+eg:
+	Sample s = new Sample(); //error
+	Sample s1 = new Sample1(); //valid
+-Forces "is-a" relationship
+
+Refer AbstractDemo.java
+
+Interfaces
+----------
+-It is used to form the rules/specifications
+-Does not force "is-a relationship"
+-In an interface all methods are public and abstract by default.
+-In an interface all variables/data members are public,static and final by default.
+
+eg:
+	interface I1
+	{
+   		[public static final] int MAX_VALUE = 100;
+   		[public abstract] void xxx();
+   		[public abstract] void yyy(); //[] => optional/default
+	}
+
+-If a class implements an interface then we need to override all methods else make the
+ class as abstract
+eg:
+	class C1 implements I1
+	{
+   		void xxx(){...}
+   		void yyy(){...}
+	}
+
+-We cannot create objects for Interfaces but we can create references referring to the
+ subclass object
+eg:
+ 	I1 i = new I1(); //error
+ 	I1 i1 = new C1(); // valid
+
+- A class can implement multiple interfaces
+eg:
+	interface I2
+	{
+   		void zzz();
+	}
+	class C2 implements I1,I2
+	{
+   		void xxx(){}
+   		void yyy(){}
+   		void zzz(){}
+	}
+-class to class =>extends
+ class to interface =>implements
+ interface to interface =>extends
+eg:
+	interface I3 extends I1
+	{}
+
+Note
+----
+-When implementing interface methods, the overridden method should be public
+- Abstract and final are illegal combination of modifiers
+eg:
+	abstract final class sample //Error-abstract final are illegal combination bcoz abstract class cannot be subclassed
+	{}
+
+	class sample1  extends Sample
+	{}
+
+eg: 
+	abstract class Base 
+	{
+	   abstract final void xxx(); //Error-abstract final are illegal combination bcoz abstract method cant be overridden
+	}
+	class Derived extends Base
+	{
+	   void xxx(){...}
+	}
+
+Refer program InterfaceDemo.java
+
+ASSIGNMENT - 8,9
+
+VIDEO-14
+--------
+IDE-Eclipse
+
+Packages
+--------
+-A package is a collection of related classes and interfaces(.class files)
+-package keyword is used to create a package
+	eg:
+		package mypack;
+-package statement should be the first statement in source code file
+-In a source code file we can have only one package statement.
+-The classes under package are stored in a folder whose name is same as package name.
+-Only public classes are accessible outside the package
+-To use the classes of one package into another package we need to import the package.
+
+Access Modifiers
+----------------
+-private
+    - A class cannot be private
+    - private keyword is used only for the data members and methods of a class
+    - accessible only within the class
+
+-default (No ned to specify)
+    - A class can be default
+    - Accessible only with in the package
+-protected
+    - A class cannot be protected
+    - Accessible within the package and subclass of another package
+-public
+    - A class can be public
+    - Accessible everywhere
+    - If a class is public, then the name of the source code file should be same as 
+      classname
+    - In a source code file we can have only one public class.
+
+
+ENCAPSULATION
+-------------
+The wrapping up of data and methods together into a container called class and by 
+providing security to data is called Encapsulation.
+
+eg:
+class Emp
+{
+   private int age;
+   void setAge(int a)
+   {
+	if(a>=18 && a<=60)
+		age = a;
+	else
+		SOP("Invalid age");
+   }
+}
+Emp e = new Emp();
+e.age=-20; //error
+e.setAge(30);
+
+-A class is fully encapsulated(secured) when all data members are private.
+
+Overridding rules - Access Modifiers
+-------------------------------------
+private -- less visible
+default
+protected
+public -- more visible
+
+eg:
+class Base
+{
+   private void xxx(){}//case1
+   void xxx(){} //case2
+   protected void xxx(){} //case3
+   public void xxx(){{} //case4
+}
+class derived extends Base
+{
+   void xxx(){}//case1-not overridden method
+   default/protected/public void xxx(){}//case2
+   protected/public void xxx(){}//case3
+   public void xxx(){}/case4
+}
+
+The access modifier of the overridden method should be same or more specific than the 
+Base class method
+
+
+VIDEO - 15
+----------
+java.lang package
+-----------------
+-This package is imported to all java programs implicitly
+
+Classes under java.lang package
+-------------------------------
+-Object
+-String
+-StringBuffer
+-stringBuilder
+-System
+-Math
+-Wrapper classes
+----------------
+-Byte
+-short
+-Character
+-integer
+-Long
+-float
+-Double
+-Boolean
+
+OBJECT class
+------------
+-Object class is the top most class in Java hierarchy
+-Any class in Java is a subclass of object class
+eg:
+	class A  [extends Object]
+	{}
+	class B extends A
+	{}
+-Object class is also known as cosmic super class
+
+11 methods of Object class
+--------------------------
+1. clone()
+	-Used to create a duplicate object
+	eg:
+		Emp e = new Emp();
+		Emp e1 = e.clone();
+
+2. equals()
+	-used to compare the hascodes of 2 objects
+	eg:
+		SOP(e.equals(e1));  //returns true
+3. finalize()
+	- used to do the clean up operations like closing of files, closing of database
+	  connections
+	- called just prior to the garbage collection
+
+4. getClass()
+	- used to return the classname of an object
+	eg:
+		SOP(e.getClass()); //Emp
+5. hashCode()
+	-used to return the hascode of an object
+	eg:
+		SOP(e.hashCode());//234566523
+6. toString()
+	-used to represent an object value in string/readable format
+	- when an object is displayed in SOP(), toString() is invoked implicitly
+	- toString() of an Object class returns the classname along with hascode of the
+	  object
+	-In order to represent the object value in string/readable format we need to 
+	 override toString() in the class
+	Refer program ToStringDemo.java
+7. wait()
+8. wait(long)
+9. wait(long,int)
+10.notify()
+11.notifyAll()
+
+Note: Last 5 methods will be discussed in Multithreading
+
+STRING class
+------------
+-String is a collection of characters
+-In Java, string is immutable (like a constant)
+	Refer diagram.
+
+Task
+----
+-Refer the API of Stirng class and Math class
+
+STRINGBUFFER class
+------------------
+-StringBuffer is mutable
+-In StringBuffer the methods are synchronized
+eg:
+	StringBuffer sb = new StringBuffer("Hello");
+	sb.append("World");
+	SOP(sb); //HelloWorld
+
+STRINGBUILDER class
+-------------------
+-StirngBuilder is mutable
+-In StringBuilder the methods are not synchronized
+ //Synchronization is discussed in Multi Threading
+
+
+WRAPPER classes
+---------------
+-For every primitive type there is corresponding reference type called as Wrapper class
+-Wrapper classes are used to convert reference type into primitive type called as Parsing
+-All wrapper classes are Final classes means we cannot create subclasses of wrapper classes
+
+eg:
+	String s1 = "245";
+	int n = Integer.parseInt(s1);
+	SOP(n);//245
+	
+	String s2 = "3.14";
+	Double d = Double.parseDouble(s2);
+	SOP(d); //3.14
+
+	String s3 = "true";
+	Boolean b = Boolean.parseBoolean(s3);
+	SOP(s3); //true
+ASSIGNMENT
+----------
+CHeck screenshot-7
+
+EXCEPTION HANDLING -- PART1
+---------------------------
+Types of Errors
+---------------
+	-Compile time or syntax errors
+	-Logical or Semantic errors
+		eg:
+		int sum=0;
+		for(int i=0;i<10;i++)
+		   sum=sum+i;
+		SOP(sum); //45 Expected is 55 but actual is 45
+	-Runtime errors or Exceptions
+
+- An exception is a runtime error which occurs during program execution and terminates the 
+  program abnormally
+- Exception handling is used to avoid the abnormal termination of program and makes the 
+  program robust (strong)
+
+	Refer program ExceptionDemo.java--6:00
+
+Five keywords in exception handling
+-----------------------------------
+Blocks
+------
+-try
+-catch
+-finally
+Classes
+-------
+-throw
+-throws
+
+try and catch block
+-------------------
+syntax
+------
+try
+{
+  St-1;
+  St-2;
+  St-3;
+  ...
+  ...
+  st-n;
+}
+catch
+{
+  //handle the exception
+}
+
+-If an exception occurs in try block, the Java runtime will throw an exception which is 
+ caught by catch block and handles the exception and the remaining part of try block will 
+ not get executed
+
+	Refer program ExceptionDemo.java
+
+Exception Hierarchy
+-------------------
+Refer diagram
+
+Throwable
+-Error
+-Exception
+ --RuntimeException
+	----ArithmatciException
+	----ArrayIndexOutOfBoundsException
+	----StringIndexOutOfBoundsException
+	----NegativeArraySizeException
+	----NumberFormatException
+	----NullPointerException
+ --IOException
+ --SQLException
+ --InteruptedException
+ --User defined Exceptions
+
+Checked Exceptions
+------------------
+Other than Runtime exceptions like IOException, SQLException, User defined exceptions etc
+are categorized as checked exceptions
+	Refer CheckedExceptionDemo.java--28:00
+
+Runtime Exceptions
+------------------
+- The exceptions which occur during program execution are runtime exceptions
+- All Runtime Exceptions are subclasses of RunttimeException class
+- All Runtime Exceptions are categorized as Unchecked Exceptions.
+
+ArithmaticException
+	-trying to divide a number by 0
+
+ArrayIndexOutOfBoundsException
+	-trying to access an array out of index
+
+StringIndexOutOfBoundsException
+	-trying to access a char of a string which is out of index
+
+NegativeArraySizeException
+	- when the sie of array is negative
+
+NumberFormatException
+	- trying to convert a String into number which is not possible
+
+NullPointerException
+	- trying to access the members of a class when the object of the class is 
+	  pointing to null
+
+	Refer RuntimeExceptionDemo.java -- 35:00
+
+EXCEPTION HANDLING -- PART2
+---------------------------
+try with multiple catch blocks
+------------------------------
+used to provide a proper message to the user based on the exception type
+
+syntax
+------
+try
+{
+   sts;
+}
+catch(ExceptionType1 e)
+{
+   sts;
+}
+catch(ExceptionType2 e)
+{
+   sts;
+}
+...
+...
+catch(ExceptionTypen e)
+{
+   sts;
+}
+	
+	Refer program MultipleCatchDemo.java--8:00
+
+Note
+----
+In try with multiple catch blocks the order of catch blocks cannot be from super class
+to subclass
+
+finally block
+-------------
+finally block is executed irrespective of exception present in try block
+
+syntax
+------
+try
+{
+   sts;
+}
+catch(Exception e)
+{
+   sts;
+}
+finally
+{
+   sts;
+}
+
+eg:
+	try
+	{
+	   Connection con = //database connection
+	   //trasaction-1;
+	   //transaction-2;
+	   ...
+	   //transaction-n;
+	}
+	catch(Exception e)
+	{
+	   //handle exceptions
+	}
+	finally
+	{
+	   con.close();
+	}
+
+Q: For a try block is catch block mandatory?
+A: No
+Reason: For a try block either we can have catch block or finally block or both
+
+	Refer program FinallyDemo.java--22:30
+
+User Defined Exceptions/Custom Exceptions
+-----------------------------------------
+Custom Exceptions are used to create user defined exceptions
+
+Creating Custom Exceptions
+--------------------------
+By creating a class which extends Exception class
+
+eg:
+	class MyException extends Exception
+	{
+	   MyException(String s)
+	   {
+		super(s);
+	   }
+	   MyException(){}
+	}
+
+	Refer CustomExceptionDemo.java--32:00
+
+Assignment
+----------
+Check screenshot--UserDefinedExceptioDemo.java
+
+Methods of Throwable class
+--------------------------
+- String toString() => returns the object value in String/readabe format
+- String getMessage() => returns the message of exception
+- void printStackTrace() => displays the root cause of exception
+
+MULTITHREADING
+--------------
+- A thread is a light weight process under execution within a process
+- Multithreading is used to increase the performance of application
+
+eg:
+	void main()
+	{
+	   se = sumEven();
+	   so = sumOdd();
+	}
+	int sumEven()
+	{
+	   ....
+	   ....
+	}
+	int sumOdd()
+	{
+	   ....
+	   ...
+	}
+
+Creating Threads
+----------------
+- By creating a class which extends Thread class
+		or
+- By creating a class which implements Runnable interface
+
+Using Thread class
+------------------
+class MyThread extends Thread //Thread is a concrete class(not abstract i.e no abstract methods)
+{
+   public void run()
+   {
+	//logic goes here
+   }
+}
+
+MyThread t = new MyThread();
+t.start(); //created a thread and invokes run()
+
+Using Runnable interface
+------------------------
+class MyThread implements Runnable
+{
+   public void run()
+   {
+	//logic goes here
+   }
+}
+
+Advantages of Runnable interface over Thread class
+---------------------------------------------------
+- If a class extends another class and to make this class as thread, the class should
+  implement Runnable interface as Java does not support Multiple interface
+
+eg:
+class A
+{}
+class B extends A,Thread //Error--doesnot support Multiple inheritance
+{}
+class B extends A implements Runnable
+{}
+
+- Ensures that run() is overridden
+
+State Transition diagram of Thread
+----------------------------------
+	Check diagram
+
+Methods of Thread class
+-----------------------
+-Thread currentThread()
+-void start()
+-void run()
+-void setName(String)
+-String getName()
+-void setPriority(int)
+-int getPriority
+-void sleep(long)
+-String toString()
+
+	Refer program ThreadDemo1.java--29:00
+
+Thread[Thread-0,5,main]
+-----------------------
+Thread-0 : Name of the thread
+5 : priority of the thread
+main : thread group
+
+interface Runnable
+{
+   public void run();
+}
+
+class Thread implements Runnable
+{
+   public static final MIN_PRIORITY = 1;
+   public static final NORM_PRIORITY = 5;
+   public static final MAX_PRIORITY = 10;
+   public void run(){}
+   public void start()
+   {
+	....
+	....
+	run()
+   }
+   void setName(String s){}
+   String getName(){}
+   ....
+   ....
+}
+
+Note
+----
+-If the priority is <1 or >10, it will throw IllegalArgumentException
+-IllegalArgumentException is a subclass of Runtime Exception class and categorized as 
+ Unchecked Exception.
+
+MULTITHREADING-2
+----------------
+	Refer program ThreadDemo2.java--1:30
+Note
+----
+-When start() is invoked multiple times on a thread, it throws IllegalThreadStateException.
+-When an exception occurs it terminates the thread not the program.
+
+Creating Threads using Runnable interface
+-----------------------------------------
+ Refer RunnableDemo.java--16:00
+
+Synchronization
+---------------
+	Check screenshot
+
+-When two or more threads access the same resource then there is a chance of getting 
+ concurrency problems
+-Synchronization in Java is used to avoid concurrency problems
+-synchronized keyword is used for Synchronization 
+-synchronized keyword can be used for a method or block of statements onlys
+
+eg:
+void xxx()
+{
+   ...
+   ...
+   synchronized(object)
+   {
+	....
+	....
+   }
+   ....
+   ....
+}
+
+Inter Thread Communication
+--------------------------
+Thread1 -> Task -> Result -> Thread2
+
+- It is done using wait(), notify() and notifyAll() methods
+- These methods belongs object class
+- When wait() is invoked on athread the other threads will go to block state untill 
+  notified using notify() or notifyAll() methods
+- If there is only one thread in block state we use notify() where as if there are 
+  multiple threads in block state we use notifyAll()
+- These methods need to be used in synchronized context only else it will throw
+  IllegalMonitorStateException
+
+	Refer InterThreadDemo.java--42:00 
+
+Assignment
+----------
+WAP to find sum of even numbers and sum of odd numbers using MultiThreading
+
+JAVA-5 version features
+-----------------------
+1.Scanner class
+2.Enhanced for loop
+3.Autoboxing
+4.Variable arguments
+5.Static imports
+6.Generics
+7.Annotations
+
+-Scanner class
+	-It is used to read values from keyboard during program execution
+
+-Enhanced for loop(for each)
+	-Used to access elements of array/collection
+  eg:
+	int[] n = {10,20,30,40,50};
+	for(int x : n)
+	   SOP(x);
+
+	output
+	------
+	10
+	20
+	30
+	40
+	50
+  
+  eg:
+	int[][] n ={
+			{1,2,3},
+			{4,5,6},
+			{7,8,9}
+		   };
+	for(int x[] : n)
+	{
+	   for(int y : x)
+		SOP(y);
+	   SOPln();
+	}
+	
+	Output
+	------
+	1 2 3 
+	4 5 6
+	7 8 9
+
+   eg:
+	Scanner s = new Scanner(System.in);
+	int[] n = new int[5];
+	for(int i=0;i<n.length;i++)
+	   n[i]=s.nextInt();
+
+-Autoboxing
+	-Converting respective primitive type into reference type or vice-versa automatically
+	 This feature is known as Autoboxing
+  Eg:
+	void xxx()
+	{
+	   int x = 10;//x is primitive
+	   yyy(x);//error prior Java 5, not an error after Java 5
+	   yyy(new Integer(x));//handled like this prior Java5
+	}
+	void yyy(Integer x)//here x is reference type
+	{...}
+
+-Variable arguments/varargs
+	-It is used to store multiple argument values into a single variable.
+	-In a method we can have only one variable argument and should be the last argument
+
+	eg:
+	   void main()
+	   {
+		sum(10,20,30);
+		sum(10,20);
+		sum(10);
+	   }
+	   int sum(int... x) //x is a variable argument and acts as an array
+	   {}
+	   int sum(int x,int... y){} //valid
+	   int sum(int... x,int y){}//error
+	   int sum(int... x,int... y){}//error
+	Refer VarArgsDemo.java--22:0
+
+-Static Imports
+	-It is used to access the static members of a class within a package directly
+	 using the classname
+
+	Refer programs--30:30
+		-MyClass.java (create in mypack1)
+		-StaticImportDemo.java (create in mypack2)
+
+-Generics
+	-Generics are used to manage different data types
+	-Generics are similar to template of c++
+
+	Refer to GenericsDemo.java-37:00
+
+-Annotations
+	-Used to reduce the burden on the compiler which inturn increases the performance 
+	 of the compiler
+	-used to avoid creating configuration files(xml files) require the application
+
+	eg:
+	class Base
+	{
+	    void xxx()
+	    {
+		.....
+	    }
+	}
+	class Derived extends Base
+	{
+	    @Override
+	    void xxx()
+	    {
+		.....
+	    }
+	}
+
+JAVA 6 version features
+-----------------------
+-Console class
+	- Used to read values into variables from keyboard during program execution
+	- used to read passwords(chars are not visible)
+
+	eg:
+	Console console = System.console();
+	SOP("Enter Username");
+	String username = console.readLine();
+	SOP("Enter Password");
+	char[] password = console.readPassword();
+	String password1 = String.valueof(password);//converts char[] to String
+
+	if(username.equals("admin") && password1.equals("admin"))
+	    SOP("success");
+	else
+	    SOP("failure");
+
+-Including Javascript code in Java
+-Load the Driver class in JDBC withoutusing class.forName()
+
+JAVA 7 version features
+------------------------
+-underscore in numbers
+	eg:
+		int n = 10_50_000; //10,50,000
+
+-String as an expression in switch statement
+	eg:
+		String fruit="apple";
+		switch(fruit)
+		{
+		   case "apple": sts;
+		   case "mango": sts;
+		   case "orange": sts;
+		}
+
+-Handling multiple exceptions using single catch block
+	eg:
+		try
+		{
+		   st-1;
+		   st-2;
+		   .....
+		   st-n;
+		}
+		catch(ArithmeticException | NumberFormatException | NullPointerException e)
+		{
+			......
+		}
+
+-try with resource
+	-will be discussed in IO package
+
+JAVA 8 version Features
+-----------------------
+- Define methods in interfaces
+	Refer program InterfaceMethodDemo.java
+	-default keyword is used to define methods in interfaces
+
+- forEach() method
+	-will be discussed in Collections
+
+- Lamda Expressions
+	-will be discussed in Collections
+
+JAVA 9 version Features
+-----------------------
+- JShell (REPL)
+- Define private methods in interfaces
+- Enhancement in try with resource
+	- will be discussed in IO package
+
+- Collection Factory methods
+	 will be discussed in Collections
+
+JShell (REPL)
+------
+-It is an interactive Java shell tool
+-It allows us to execute Java code from a shell and shows output immediately
+-JShell is a REPL--Read Evaluate Print Loop toll and run from the command line/terminal
+
+>jshell --> to open JShell
+jshell>System.out.println("Welcome");
+
+Variables in jshell
+-------------------
+jshell>int n =10;
+
+Scratch variables
+-----------------
+-If we dont provide a variable name, Java creates implicit variable to store the value
+-These variables starts with $ symbol
+
+Private Methods in Interface
+----------------------------
+-we can create private methods in Interface
+-private methods of interface helps to share common code between non abstract methods
+	Refer PrivateInterfaceDemo.java--38:00
+
+COLLECTIONS
+-----------
+Collections are used to collect the elements of variable size (not fixed)
+
+Arrays vs Collections
+---------------------
+-In Arrays we can collect the elements of fixed size where as in Collections we can 
+ collect the elements of variable size (not fixed)
+
+-In Arrays we can collect only similar type of elements where as in Collections we can 
+ collect different type of elements
+
+-In Arrays we can collect Primitive type as well as Reference type of elements where
+ as in Collections we can collect only Reference type of elements.
+
+Collections Hierarchy
+---------------------
+	Check screenshto(10)
+
+<<Collection>> vs <<Map>>
+-------------------------
+-Collection is used to collect the elements where as map is used to collect the elements
+ in the form of key-value pairs
+
+<<List>> vs <<Set>>
+-------------------
+-List is ordered where as Set is unordered
+-List allows duplicate elements where as Set does not allow duplicate elements
+
+ArrayList vs LinkedList
+-----------------------
+-In ArrayList the elements are stored in continuous memory locations where as in
+ LinkedList the elements are stored in non-continuous memory locations
+
+-The cost of insert and delete operations are more in ArrayList where as the cost of these
+ operation is less in LinkedList.
+
+HashSet
+-------
+HashSet is unordered and no duplicate elements
+
+LinkedHashSet
+-------------
+LinkedHashSet is ordered and no duplicate elements
+
+<<SortedSet>>---TreeSet
+-----------------------
+Treeset is sorted and no duplicate elements
+
+HashMap
+-------
+HashMap is unordered based on keys and no duplicate keys
+
+LinkedHashMap
+-------------
+LinkedHashMap is ordered based on keys and no duplicate keys
+
+<<SortedMap>>---TreeMap
+-----------------------
+TreeMap is sorted based on keys and no duplicate keys
+
+Methods of List interface
+-------------------------
+-boolean add(object) => adds an element at last
+
+-void add(int,object) => adds an element at the given index/position
+
+-void set(int,object) => updates/modifies the element at given index
+
+-boolean remove(object) =>deletes the given element
+
+-Object remove(int) => deletes the element at the given index
+
+-object get(int) => returns the element at the given index
+
+-int size() => returns the number of elements
+
+	Refer ArrayListDemo.java
+
+Additional methods of LinkedList
+--------------------------------
+-addFirst()
+-addLast()
+-removeFirst()
+-removeLast()
+
+Traversing
+----------
+Accessing every element of list/set is called Traversing
+
+Iterator interface
+------------------
+This interface is used to traverse the elements of list/set from first to last
+Methods
+-------
+boolean hasNext()
+object next()
+
+ListIterator interface
+----------------------
+-This interface is used to traverse the elements of list from first to last as well as
+ last to first
+-ListIterator extends Iterator
+Methods
+-------
+boolean hasPrevious()
+object previous()
+
+Enumeration interface
+---------------------
+-This interface is used to traverse the elements of list/set
+-The methods of enumeration interface are synchronized
+Methods
+-------
+boolean hasMoreElements()
+object nextElement()
+
+	Refer TraverseDemo.jav -- 7:30
+
+Using Generics in collections
+-----------------------------
+-Generics are used to manage different data types.
+-When Generics are used in Collections we can ensure that only similar type of elements 
+ are present in collection
+-When Generics are used in collections we can traverse the elements using Enhanced for
+ loop
+	Refer UsingGenericsDemo.java -- 18:30
+
+Set interface
+-------------
+-Set is an unordered collection of elements
+-Set doesnot allow duplicate elements
+
+Classes under Set interface
+---------------------------
+-HashSet => unordered and no duplicates
+-LinkedHashSet => ordered and no duplicates
+-TreeSet => sorted and no duplicates
+	Refer SetDemo.java ==26:30
+
+Note
+----
+-In Treeset the elements should be of same type else it will throw ClassCast Exception
+
+Map interface
+-------------
+-Map is used to collect elements in the form of key value pairs
+-Map dosent allow duplicates
+
+Classed under Map interface
+---------------------------
+-HashMap => unordered based on keys and no duplicate keys
+-LinkedHashMap => ordered based on keys and no duplicate keys
+-TreeMap => sorted based on keys and no duplicates
+
+	Refer MapDemo.java --41:30
+
+Iterating Maps
+--------------
+-Get the keys of Map into a Set:
+eg:
+	HashMap<String,Integer> hm = new HashMap<String,Integer>();
+	Set<String> keys = hm.keySet();//returns keys of Map
+
+-Iterate keys of Set
+eg:
+	for(String k : keys)
+	   SOP(k+":"+hm.get(k));
+
+-get(key) => returns the value of key
+
+	Refer IterateMap.java -- 48:50
+
+IO PACKAGE
+----------
+-IO stands for Input Output
+-IO package is used for
+	-creating new files
+	-write data onto the files
+	-open existing files
+	-read data from the files
+	-closing the file
+
+Stream : Flow of data is called as stream.
+-Flow of data can be from keyboard to memory(RAM);memory to harddisk;harddisk to memory;
+ memory to screen
+
+Types of streams
+----------------
+-byte streams (by deafult)
+-char streams
+
+IO Hierarchy
+------------
+Stream  -- [] ==> abstract classes
+-byte stream
+	--[InputStream]
+		---FileInputStream
+		   -Used to open an existing file and read data from the file
+		---BufferedInputStream
+		   -Used to increase the performance of read operations
+		---DataInputStream
+		   -Used to read different type of data like int,float,double,String from
+		    the data file
+		---ObjectInputStream
+		   -Used to read an object from the data file
+	Refer programs
+		-FileInputStreamDemo.java -- 23:00
+		-DataInputStreamDemo.java
+
+	--[OutputStream]
+		---FileOutputStream
+		   -Used to create a file and write data into the file
+		---BufferedOutputStream
+		   -Used to increase the performance of write operations
+		---DataOutputStream
+		   -Used to write different type of data like int,float,double,String onto
+		    the data file
+		---ObjectOutputStream
+		   -Used to write an object into the data file
+	Refer programs
+		-FileOutputStreamDemo.java -- 14:00
+		-DataOutputStreamDemo.java
+Note
+----
+When we write data onto the file using DataOutputStream then we need to read data from the
+file using DataInputStream only
+
+-char stream
+	--[Reader]
+		---FileReader
+		   -Used to open an existing file and read data from the file
+		---BufferedReader
+		   -Used to increase the performance of read operations. This class is used
+		    to read variables from keyboard during program execution.
+			Refer BufferedReaderDemo.java -- 3:00
+		   
+	Refer FileReaderDemo.java -- 43:00
+	--[Writer]
+		---FileWriter
+		   -Used to create a file and write data into the file
+		---BufferedWriter
+		   -Used to increase the performance of write operations
+	Refer FileWriterDemo.java
+
+try with resource
+-----------------
+-Using try with resource the resource will get closed automatically 
+		    without close()
+
+try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in)))
+{}
+
+Enhanceement in try with resource in Java 9
+-------------------------------------------
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in)
+try(br)
+{}
+
+File class
+----------
+-File class is used to create files, folders
+-Used to check whether the file/folder exists
+	Refer FileDemo.java--23:00
+
+SERIALIZATION
+-------------
+-The process of writing an object onto the file is called as Serialization.
+-The process of reading an object from the file is called as Deserialization.
+-In order to serialize an object of a class, the class should implement Serializable 
+ interface else it will throw NotSerializableException.
+
+	Refer SerializationDemo.java
+
+UTILITY CLASSES
+---------------
+-Arrays
+-StringTokenizer
+-Date
+-Properties(will be discussed in JDBC)
+
+Arrays
+------
+-It is used for the following 
+	-converting an array to list
+	-sorting the elements of the array
+	-serch for an element in the array
+Methods
+-------
+-asList()
+-sort(n[])
+-binarySearch(n[],key)
+
+	Refer ArrayToList.java--3:20
+	Refer ListToArray.java --9:30
+	Refer SortArrayDemo.java --14:00
+	Refer SearchArrayDemo.java --17:45
+
+StringTokenizer class
+---------------------
+StringTokenizer class is used to divide the given String itnto substrings called as tokens
+based on the given symbol(quantifier)
+
+StringTokenizer class implements Enumeration interface.
+Methods
+-------
+boolean hasMoreToken()
+String nextToken()
+
+	Refer StringTokenizerDemo.java -- 24:30
+
+Date class
+----------
+Used to return the current date and time
+	Refer DateDemo.java -- 29:00
+	Refer DateDemo1.java -- 31:30
+
+SQL Concepts
+------------
+SQL -- Structured Query Language
+
+Database
+--------
+A database is a collection of interrelated tables
+
+Table
+-----
+A table is collection of data in the form of rows and columns
+
+eg:
+Employee table
+------------------------
+eno    ename    salary	} column name
+------------------------
+111     xxxx     5000	} Records/ Row
+222     yyyy     6000
+333     zzzz     7000
+------------------------
+
+SQL Commands
+------------
+DDL - Data Definition Language		- CREATE, ALTER, DROP, TRUNCATE
+DML - Data Manipulation Language	- INSERT, UPDATE, DELETE
+DQL - Data Query Language		- SELECT
+TCL - Transaction Control Language	- COMMIT, ROLLBACK
+
+Popular Databases
+-----------------
+- Oracle (Oracle corp)
+- MySQL (Oracle corp)
+- DB/2 (IBM)
+- SQL Server (Microsoft)
+- MS Access (Microsoft)
+
+Downloading and Installing MySQL Server
+---------------------------------------
+Creating Databases in MySQL
+--------------------------
+mysql> create database databasename;
+
+eg:
+mysql> create database mydb;
+mysql>use mydb
+Database Changed
+
+Datatypes in MySQL
+------------------
+- int		-only integers without decimal points
+- float		-accepts decimal (float is not supported in Oracle instead (Number) is used)
+- char		-used for fixed size data eg: pincode, mobile no
+- varchar	-used for variable size data eg: empname, studname etc
+- date
+
+CREATE TABLE Command
+--------------------
+Used to create a table with the specified columns
+syntax
+------
+CREATE TABLE tablename (column-name-1 Datatype(size), 
+			column-name-2 Datatype(size),
+			.............
+			column-name-n Datatype(size));
+
+eg:
+CREATE TABLE Books (bno int(3), bname varchar(10), price float(4));
+
+DESC Command
+------------
+used to give the structure of the table
+syntax
+------
+DESC tablename;
+eg:
+DESC Books;
+
+DROP Command
+------------
+used to delete the table
+syntax
+------
+DROP TABLE tablename;
+eg:
+DROP TABLE Books;
+
+INSERT Command
+--------------
+used to insert the records/rows into the table
+syntax
+------
+INSERT INTO tablename VALUES (value-1, value-2,.....,value-n);
+	-the number of values should be equal to the no of columns of table
+
+INSERT INTO tablename (column-1,column-2,.....,column-n) VALUES
+			(value-1, value-2,.....,value-n);
+	-the no of values should be equal to the no of columns given in the command.
+
+eg:
+INSERT INTO Books VALUES(111,'Java',500);
+INSERT INTO Books (bno,bname) VALUES (222,'xml');	
+
+Inserting multiple records using one insert command
+---------------------------------------------------		
+INSERT INTO Books VALUES (333,'css',600),(444,'html',800),(555,'Spring',400),(555,'Sevlet',500);
+
+UPDATE Command
+---------------
+USed to modify/update the existing records
+syntax
+------
+UPDATE Books SET column=newvalue,column=newvalue,....,column=newvalue[WHERE condition];
+	[ ] in syntax indicates optional
+
+eg:
+UPDATE Books SET price=700; /for all records price wil be set to 700
+
+UPDATE Books SET price=800 WHERE bno=222; 
+
+TCL Commands
+------------
+Transaction Control Language
+
+By deafult in MySQL the transactions are autocommitted
+
+To set autocommit off use the following command
+
+mysql> set autocommit = 0;
+COMMIT
+------
+used to save the transactions (insert,update,delete)
+	eg:
+	mysql>commit;
+
+ROLLBACK
+--------
+used to undo the uncommitted transactions
+	eg:
+	mysql>rollback;
+
+DELETE Command
+--------------
+Used to delete the records of the table
+syntax
+------
+DELETE FROM tablename [WHERE condition];
+
+eg:
+DELETE FROM Books; //deletes all the records
+DELETE FROM Books WHERE bno=222;
+DELETE FROM Books WHERE price>=500 AND price<=700;
+
+TRUNCATE Command
+----------------
+Used to delete all the records of the table
+syntax
+------
+TRUNCATE TABLE tablename;
+
+eg:
+TRUNCATE TABLE Books;
+
+In DELETE command we can use ROLLBACK where as in case of TRUNCTE command we cannot use ROLLBACK.
+
+Note: ALL DDL Commands are auto committed.
+
+SELECT Command
+--------------
+Used to retrieve the records of the table
+syntax
+------
+SELECT */column-names FROM tablename [WHERE condition]
+					[ORDER BY column-1,column-2,....column-n]
+					[GROUP BY column]
+					[HAVING condition]
+
+* indicates all columns
+
+All clauses (WHERE,ORDER BY,GROUP BY,HAVING) are optional
+
+eg:
+SELECT * from Books;
+SELECT bno,bname from Books;
+
+WHERE clause
+------------
+Used to filter the records of teh table based on condition
+
+eg:
+SELECT * FROM Books WHERE bno=222;
+
+SELECT * FROM Books WHERE price>=500 and price<=700
+
+OPERATORS
+---------
+AND
+OR
+IN
+BETWEEN
+NOT
+IS
+LIKE
+
+SELECT * FROM Books WHERE bname='java' or bname='xml';
+
+SELECT * FROM Books WHERE bnama in ('java','html','xml');
+
+SELECT * FROM Books WHERE price between 500 and 700;
+
+SELECT * FROM Books WHERE price is null;
+
+SELECT * FROM Books WHERE price is not null;
+
+LIKE Operator
+-------------
+wildcards
+---------
+% => all characters
+_ => single character
+
+eg:
+Display books whose bname starts with 'j'
+	SELECT * FROM Books where bname like 'j%';
+
+Display books whose name ends with 'l'
+	SELECT * FROM Books whose bname like '%l';
+
+Display books whose bname contains a char 'p'
+	SELECT * FROM Books whose bname like '%p%';
+
+Display books whose second char is 's'
+	SELECT * FROM Books whose bname like '_s%';
+
+Display books whose name contains exact 4 characters
+	SELECT * FROM Books where banem like '____';
+
+ORDER BY clause
+---------------
+Used to display the records in ascending or descending order
+
+eg:
+SELECT * FROM Books order by price; //ascending
+SELECT * FROM Books order by price desc;
+SELECT * FROM Books order by price,bname; 
+
+FUNCTIONS
+---------
+sum()
+-----
+	SELECT sum(price) from Books;
+	SELECT sum(price) "Total Price" from Books;
+avg()
+-----
+	SELECT avg(price) "AVG PRICE" from Books;
+max()
+-----
+	SELECT max(price) "MAX PRICE" from Books;
+min()
+-----
+	SELECT min(price) "MIN PRICE" from Books
+count()
+-------
+	SELECT count(*) "No of Records" from Books;
+
+GROUP BY clause
+---------------
+Used to group the records based on the given column
+
+Employee table
+----------------------------
+eno  ename  salary     dno
+----------------------------
+111   xxx    5000     10
+222   yyy    6000     20
+333   zzz    7000     30
+444   ppp    5500     10
+----------------------------
+
+eg:
+mysql>SELECT dno "Dept No",sum(salary) "Total Salary" from employee group by dno;
+
+Dept No     Total salary
+-------------------------
+  10          10500
+  20          6000
+  30          7000
+-------------------------
+
+mysql>SELECT dno "Dept No",count(*) "No of Emps" from employee group by dno;
+
+Dept No     No of Emps
+-------------------------
+  10          2
+  20          1
+  30          1
+-------------------------
+
+HAVING Clause
+-------------
+- Used to filter the records after grouping the records
+- should be used only with group by clause
+
+eg:
+mysql>SELECT dno "Dept No",sum(salary) "Total Salary" from employee group by dno having
+ sum(salary)<10000;
+
+Dept No     Total salary
+-------------------------
+  20          6000
+  30          7000
+-------------------------
+
+ALTER TABLE command
+-------------------
+ALTER TABLE commadn is used for the following
+	-rename the table
+	-add new columns
+	-modify existing columns
+	-rename columns
+	-drop/delete columns
+
+mysql>alter table books rename to tempboks;
+mysql>alter table books add author varchar(10);
+mysql>alter table books modify bname varchar(15);
+mysql>alter table change bname bookname varchar(15);
+mysql>alter table books drop column author;
+
+Table constraints
+-----------------
+Constraints are the rules which are applied to the table columns based on the given 
+specifications
+
+-primary key
+	-a key which is unique and not null which is used to identify a row uniquely
+
+-not null
+	-does not accept null values (mandatory fields)
+-unique
+	-does not accept duplicate values and accepts null values
+-check
+	-used to check a condition for the given column
+-foreign key
+	-a primary key (pk) of one table acting as an ordinary key in another table mainly
+	 used to relate the tables is called as foreign key
+
+eg:
+	Department table
+	---------------------------
+	 dno(pk)        dname
+	-------------------------
+	  10             hr
+	  20             finance
+	  30             training
+	--------------------------
+
+	Employee Table
+	--------------------------------------------
+	eno(pk)       ename      salary     dno (fk) 
+	--------------------------------------------
+	111           xxx         5000       10
+	222           yyy         6000       30
+	333           zzz         8000       40  //Error
+	--------------------------------------------
+
+eg:
+mysql>create table department (dno int(2) primary key,dname varchar(10) not null);
+
+mysql>create table employee(eno int(3) primary key,ename varchar(10) not null,
+	salary int(4) check (salary >= 5000 and salary <=9000),
+	dno int(2),
+	constraint fk_dno foreign key (dno) references department (dno));
+
+JDBC
+----
+-JDBC stands for Java Database Connectivity
+-JDBC is an API which is used to connect to a database from a Java program
+	Java Program -> JDBC API -> Database
+
+Steps in JDBC
+-------------
+1. import java.sql.*;
+2. Load the Driver class
+	Class.forName("com.mysql.jdbc.Driver"); //MYSQL
+	Class.forName("oracle.jdbc.driver.OracleDriver"); //Oracle
+3. Establish the Connection
+	//MySQl
+	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java14","root","root");
+	localhost: IP address or hostname of MySQl server
+	3306: portno where MYSQL server is running
+	java14: Database name
+	root: username
+	root: password
+
+	//Oracle	
+	Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","manager");
+	localhost: IP address or hostname of Oracle server
+	1521: port no where Oracle server is running
+	xe: SID (System Identification)
+		For Express edition SID is xe
+		For standard/enterprise edition SID is orcl
+	system: username
+	manager: password
+
+4. Create a statement
+   - Has 3 interfaces
+	Statement		-createStatement()
+	PreparedStatement	-prepareStatement()
+	CallableStatement	-prepareCall()
+
+	eg:
+	Statement st1 = con.createStatement();
+	PreparedStatement st2 = con.prepareStatement("select * from Books");	
+
+5. Execute the statement
+
+	boolean execute()		-CREATE,ALTER,DROP (DDL)
+	int executeUpdate()		-INSERT,UPDATE,DELETE (DML)
+	ResultSet executeQuery()	-SELECT (DQL)
+	eg:
+	st1.executeQuery("select * from books");
+	st2.executeQuery();
+
+	Note
+	----
+	We can use any method to execute any SQL command but to manage the return type we
+	need to use the specific method
+
+6. Close the statement
+	st1.close();
+	st2.close();
+
+7. Close the Connection
+	con.close();
+
+	Refer JdbcMySQLDemo.java
+
+Download mysql-connector-java-5.1.23.jar file
+---------------------------------------------
+In order to connect to MySQl database from Java program we need to set the classpath
+(buildpath) to mysql-connector-java-5.1.25.jar file into the project(MProj) as follows
+
+Right click MyProj -> Build Path -> Configure Build Path -> Click on the tab Libraries ->
+Click on Add External  JARs -> select mysql-connector-java-5.1.23.jar from your folder ->
+Click open -> Click Apply and Close
+
+	Refer JdbcOracleDemo.java
+Download ojdbc14.jar file
+
+jar => java archive (collection of .class files in compressed format)
+
+Creating jar files
+------------------
+>jar -cfv myjar.jar *.class
+
+Java 6 feature
+--------------
+Load the Driver class in JDBC withoutusing class.forName()
+
+- Create a folder "META-INF" in src folder of MyProj
+- Create a folder "services" in META-INF folder
+- Create a file "java.sql.driver" in services folder
+- Type the following code in java.sql.Driver file
+	oracle.jdbc.driver.OracleDriver #Oracle Driver
+	com.mysql.jdbc.Driver #MySQL Driver
+
+Refer program JdbcStatementDemo.java -- 1:00;
+
+PreparedStatement interface
+---------------------------
+-If the same SQL command is executed multiple times in the program then it is suggested to
+ use PreparedStatement
+
+-PreparedStatement is dynamic means during runtime we can pass values to SQL command
+
+	Refer JdbcPreparedStaementDemo.java
+
+Functions and Procedures
+------------------------
+Functions and Procedures are set of SQL commands which are used to do a specific task.
+
+A function returns only one value using return statement
+
+A procedure returns multiple values using out parameters
+
+Creating a function
+-------------------
+mysql>delimiter //
+
+mysql>create function f_get_price(pbno int) returns float
+      begin
+	declare pprice float;
+	select price into pprice from books where bno=pbno;
+	return pprice;
+      end;
+      //
+
+Create a procedure
+------------------
+mysql>delimiter //
+
+mysql>create procedure getPrice(in pbno int,out pprice float)
+      begin
+	select price into pprice from books where bno=pbno;
+      end;
+      //
+
+CollableStatement interface
+---------------------------
+It is used to call functions and procedures
+
+	Refer JdbcCallableStatementDemo1.java (to call function)
+	Refer JdbcCallableStatementDemo2.java (to call procedure)
+
+Assignment
+----------
+WAP to display the records of Books table
+	Note: Structure of Books table is not given
+
+	Hint: ResultSetMetaData interface
+
+
+
+
+
+
+
+JAVA EE(Enterprise Edition)
+---------------------------
+-Used to develop Web Applications and Enterprise Applications
+
+Java EE Components
+------------------
+Web Components
+--------------
+Used to develop web applications
+	-Servlets
+	-JSP(Java Server Pages)
+Enterprise Components
+---------------------
+Used to develop enterprise applications
+	-EJB(Enterprise Java Beans) now a days Spring framework is used instead of this
+
+-Java EE applications are accessed by multiple clients.
+-In order to make Java EE application to be accessed by multiple clients we need to deploy the application onto the server.
+
+Types of Servers
+---------------
+Web servers
+-----------
+-Used to develop only web applications
+	-Can understand servlets & JSP
+eg:
+-Apache Tomcat
+-Adobe JRun
+-Jetty
+
+Application Servers
+-------------------
+-Used to develop both web applications as well as enterprise applications
+	-Servlets,JSP,EJB
+eg:
+-Oracle GlassFish
+-Oracle Weblogic
+-IBM Websphere
+-RedHat JBOSS
+
+Servlets
+--------
+-Servlets are Java programs which are used to develop Server side dynamic web applications
+-Applets are Java programs which are used to develop Client side dynamic web applications
+
+Server Side Dynamic web applications
+------------------------------------
+-Servlets(java)
+-JSP(Java)
+-ASP.NET(.net)
+-PHP
+
+Servlet Hierarchy
+-----------------
+Refer diagrom
+
+Servlet interface methods
+-------------------------
+-init()
+-service()
+-destroy()
+-getServletInfo()
+-getServletConfig()
+-getServletContext()
+
+Servlet Architecture
+--------------------
+Refer diagram
+
+servlet Lifecycle
+-----------------
+-Life cycle is a set of methods which are executed in an order automatically by the servlet container.
+
+-init()
+	-called only once when servlet is loaded
+	-generally we establish database connections
+-service()
+	-called for every request
+-destroy()
+	-called only once when servlet is destroyed
+	-generally we close the database connections.
+
+Creating a servlet
+------------------
+-By creating a class which extends GenericServlet Class
+or
+-By creating a class which extends HttpServlet class
+
+Using GenericServlet class
+--------------------------
+public class Welcome Servlet extends GenericServlet
+{
+   public void service(ServletRequest request, ServletResponse response)
+	throws ServletException, IOException
+   {
+	//handle request
+   }
+}
+
+Using HttpServlet class
+-----------------------
+public class WelcomeServlet extends HttpServlet
+{
+   public void doGet(HttpServletRequest request, HttpServletResponse response)
+	throws ServletException, IOException
+   {
+	//handle request
+   }
+   public void doPost(HttpServletRequest request, HttpServletResponse response)
+	throws ServletException, IO Exception
+   {
+	//handle request
+   }
+}
+
+Note
+----
+inteface HttpservletRequest extends Servletrequest
+{}
+
+inteface HttpservletResponse extends Servletresponse
+{}
+
+GenericServlet vs HttpServlet
+-----------------------------
+GenericServlet is used for all protocals http, smtp, ftp etc where as
+HttpServlet is used for only Http protocol
+
+http: hypertext transfer protocol
+smtp: simple mail transfer protocol
+ftp: file transfer protocol
+
+
+Creating a Servlet in eclipse using Tomcat server 9
+---------------------------------------------------
+- Configure tomcat server in workspace
+- Create a dynamic web project
+	File->New->Other->Web->Dynamic Web Project
+- Create a servlet in Dynamic Web Project
+
+PrintWriter out = response.getWriter();
+out.println("Message");
+
+web.xml
+-------
+<web-app>
+   <servlet>
+	<servlet-name>WelcomServlet</servlet-name>
+	<servlet-class>WelcomeServlet</servlet-class>
+   <servlet>
+   <servlet-mapping>
+	<servlet-name>WelcomeServlet</servlet-name>
+	<url-pattern>WelcomeServlet</url-pattern>
+   <servlet-mapping>
+</web-app>
+
+Sending HTML as response
+------------------------
+In order to include HTML code in servlets we nedd to call the following method.
+
+response.setContentType("text/html");
+
+21/July/2017- Video-7
+---------------------
+Reading HTML form data into a servlet
+request.getParameter();
+-----------------------
+This method is used to read HTML form data into a Servlet.
+The return type of request.getParameter() is String.
+
+eg:
+
+String ename = request.getParameter("ename");
+Here String ename is Java variable & "ename" is HTML form field name
+
+Example Application
+-------------------
+	Refer emp.html and EmpServlet
+- Create a HTML file "emp.html" in WebProject
+- Create a servlet EmpServlet
+- Run the application emp.html
+
+GET vs POST:
+------------
+- In GET method the goes along with the url (visible, not secured) where as incase of POST
+  method the data goes as a separate page (not visible in url, secured)
+- In GET method we can send only limited data(255 chars) where as in POST method we can 
+  send unlimited data
+- The performance of GET method is faster than POST method
+
+Reading HTML form field Name
+----------------------------
+	Refer screenshot 18 and do Assignment
+
+request.getParameterNames();
+----------------------------
+This method is used to read HTML form field names
+eg:
+Enumeration fNames = request.getParameterNames();
+while(fNames.hasMoreElements())
+  String fname = fNames.nextElement();
+
+request.getParameterValues();
+-----------------------------
+This method is used to read multiple values of given form field
+eg:
+String[] values = request.getParameterValues("CardNum");
+for(String value: values)
+  out.println(value);
+
+Video-8
+-------
+Servlet to servlet Communication
+--------------------------------
+RequestDispatcher Interface
+----------------------------
+This interface is used for dispatching the request from one servlet to another servlet.
+
+Servlet1
+--------
+RequestDispatcher rd = request.RequestDistpatcher("/servlet2");
+rd.forward(request,response);
+
+response.sendReedirect();
+-------------------------
+This method is used to redirect to other html,servlets, JSP pages, using this method the 
+data is not forwarded to other servlets.
+eg:
+response.sendRedirect("/WebProject/login.html");
+
+Login Application
+-----------------
+
+- Create users table in MySQL as follows
+	mysql>create table users (username varchar(10),password varchar(10));
+- Insert a record into users table
+- Create Welcome page login.html in WebProject
+- Create a LoginServlet in WebProject
+- Create a servlet "RegisterServlet"
+
+Settings required for Login Application
+---------------------------------------
+Copy "mysql-connector-java-5.1.25.jar" file into WebProject/WebContent/WEB-INF/lib folder.
+
+Session Tracking
+----------------
+It is used to track whether a user is coming from previous pages properly or not.
+
+page1->page2->page3
+page1->page2->page4
+
+4 ways of Session Tracking
+--------------------------
+- Hidden Form Fields
+- URL Rewriting
+- Cookies
+- HttpSession
+
+Hidden Form Fields
+------------------
+In this we track the user session by using hidden form fields whihc are created in Page1 
+and read in Page2
+
+	Refer programs
+		-hidden.html
+		-HiddenPage1.java (servlet)
+		-HiddenPage2.java (servlet)
+
+URL Rewriting
+-------------
+In this we track the user session by sending the track data along with the url.
+	Refer programs
+		-url.html
+		-URLPage1.java
+		-URLPage2.java
+
+Cookies
+-------
+- Cookies are used to rememeber the user data
+- Cookies are stored onto the client browser
+
+Creating a Cookie
+-----------------
+Cookie cookieObj = new Cookie("cookie-name","cookie-value");
+
+eg:
+	Cookie c = new Cookie("username","admin");
+	response.addCookie(c);//adds cookie to client browser
+
+Reading Cookies
+---------------
+Cookie[] cookies = request.getCookies();
+for(Cookie c : cookies)
+	out.println(c.getName()+":"+c.getValue());
+getName() => returns the cookie-name
+getValue() => returns the cookie-value
+
+	Refer programs
+		- item.html
+		- CreateCookieServlet.java
+		- ReadingCookieServlet.java
+
+HttpSession interface
+---------------------
+This interface is used to track the user session by using attributes
+
+Page1
+-----
+HttpSession session = request.getSession();
+session.setAttribute("attribute-name","attribute-value");
+
+Page2
+-----
+HttpSession session = request.getSession();
+session.getAttribute("attribute-name");
+
+	Refere programs
+	- session.html
+	- HttpPage1.java
+	- HttpPage2.java
+
+ServletConfig interface
+-----------------------
+This interface is used to read initial parameters from web.xml file into a particular 
+servlet
+	Refer programs
+	- ServletConfigDemo.java
+	- web.xml
+
+ServletContext interface
+------------------------
+This interface is used to read context parameters(global) from web.xml file into all
+servlets/JSPs of complete web application
+	Refer programs
+	- ServletContextDemo.java
+	- web.xml
+Filters
+-------
+Filters are used for the following
+	- to provide preprocessing logic before the request is processed
+	- to provide post processsing logic after the request is processed
+
+Creating Filters
+----------------
+public class MyFilter  implements Filter
+{
+   public void init(){}
+   public void destroy(){}
+   public void doFilter(ServletRequest request,ServletResponse response
+	FilterChain filter) throws ServletException,IOException
+   {
+	//preprocessing logic
+	chain.doFilter(request,response);//invoke the servlet
+	//postprocessing logic
+   }
+}
+
+Example Application
+-------------------
+- Create a Filter "LogFilter" in WebProject
+	Refer program LogFilter.java
+- Update the web.xml file
+
+JSP
+---
+- Java Server Pages
+- JSP is used to develop server side dynamic web applications like servlets
+- A JSP page consists of HTML tags and JSP tags
+- In JSP we can separate the presentation logic and business logic
+
+Servlets vs JSP
+---------------
+- In Servlets, Java code contains HTML code where as in JSP, HTML code contains Java code
+- In Servlets, if the code is modified we need to recompile and redeploy the application
+  where as in JSP we need not recompile and redeploy the application.
+- In JSP the code is less than Servlet as in JSP we can use JSP implicit objects, Custom
+  tags, JSTL.
+
+Life Cycle of JSP
+-----------------
+- jspInit()
+	-called only once when the JSP page is loaded
+
+- _jspService()
+	- called for every request
+	- cannot be overridden
+
+- jspDestroy()
+	-called only once when the JSP page is destroyed.
+
+JSP Architecture
+----------------
+Two Phases
+----------
+-Translation phase
+	- when a request is made to a JSP page, the JSP page will get translated into a 
+	  servlet only once until JSP page changes.
+
+-Request Processing Phase
+	- the request is processed by the translated servlet
+
+JSP tags
+--------
+- Directive Tags
+- Scriplet Tags
+- Action Tags
+
+Directive Tags
+--------------
+- page directive => <%@page ...%>
+- Include directive => <%@include ...%>
+- taglib directive => <%@taglib ...%>
+
+Scriplet Tags
+-------------
+- Declaration => <%! ... %>
+- Expression tag => <%= ...%>
+- Script tag => <% ... %>
+
+Action Tags
+-----------
+<jsp:include>
+<jsp:forward>
+<jsp:param>
+<jsp:useBean>
+<jsp:setProperty>
+<jsp:getProperty>
+
+page directive
+--------------
+- <%@page ... %>
+- used to import java packages
+- used to set the content types
+- used to handle the exceptions
+
+eg:
+	<%@page import="java.util.*" %>
+	<%@page import="java.sql.*" %>
+		or
+	<%@page import="java.util.*,java.sql.*"%>
+
+	Refer MyDate.jsp
+	<%@page contentType="text/html" %>
+	<%@page contentType="application/vnd.ms-excel" %>
+
+	Refer excel.jsp
+
+include directive
+-----------------
+- <%@include ...%>
+- used to include other html/jsp pages.
+
+eg:
+	<%@include file="header.jsp" %>
+	....
+	<%@include file="foter.jsp" %>
+
+	Refer programs
+	- header.jsp
+	- footer.jsp
+	- includedemo.jsp (Run)
+
+Scriplet Tags
+-------------
+Declaration Tag
+---------------
+- <%! ... %>
+- used to declare variables(data members) and to define methods
+- the code goes into the translated servlet class
+
+eg:
+	<%! int n=100 %>
+	<%! void xxx()
+	    {
+		...
+		...
+	    } 
+	%>
+	<%! void jspInit()
+	    {
+		...
+		...
+	    }
+	%>
+
+Expression Tag
+--------------
+- <%= .... %>
+- used to take the value of variable and to call methods
+- the code goes into _jspService() of translated servlet class
+
+eg:
+	<%= n %>//100
+	<%= xxx() %>
+	<%= new java.util.Date() %>
+
+Script Tag
+----------
+- <% ... %>
+- used to include any java code
+- the code goes into _jspService() of translated servlet class
+
+eg:
+	<% 
+	   for(int i=1;i<=10;i++)
+		out.println(i);
+	%>
+
+MyJsp.jsp
+---------
+<%@page import="java.util.* %>
+<%! int n=100 %>
+<%! void xxx()
+    {
+	....
+    }
+%>
+<%= n %>
+<%= xxx() %>
+<% 
+   for(int i;i<=10;i++)
+	out.println(i);
+%>
+
+To make request to MyJsp.jsp we can use following url
+http://localhost:8080/WebProject/MyJsp.jsp
+
+Translated Servlet
+------------------
+public class MyJsp_jsp extends HttpJspBase //HttpJspBase extends HttpServlet
+{
+   int n=100;
+   void xxx()
+   {
+	....
+   }
+   public void _jspService()
+   {
+	JspWriter out = reesponse.getWriter(); //JspWriter extends PrintWriter
+	out.println(n);
+	xxx();
+	for(int i;i<=10;i++)
+	   out.println(i);
+   }
+}
+Eg:
+Create a HTML file which accepts a number from the user
+Create a JSP Page which reads the numer from HTML file and displays the factorial of the
+given number
+	
+Refer programs
+	-fact.html
+	-Factorial.jsp
+Example
+-------
+Create a HTML file which accepts a color from a user.
+Create a JSP page which reads the color from HTML file and displays the background of 
+webpage with the given color
+
+Refer Programs
+	- color.html
+	- BGColor.jsp
+
+Create a HTML file which accepts a employee details from a user.
+Create a JSP page whihc reads the employee details from HTML file and displays the details
+in tabular format
+Refer
+- Employee.html
+- Employee.jsp
+
+JSP Implicit/Predefined Objects
+-------------------------------
+	Refere screenshot
+
+config implicit object
+----------------------
+config is an implicit of ServletConfig interface which is used to read initial parameters 
+from web.xml file into a particular JSP page 
+Refer
+-configdemo.jsp
+-web.xml
+
+application implicit object
+---------------------------
+application is an implicit object of ServletContext interface whihc is used to read 
+context parameters from web.xml file
+
+Refer
+-application.jsp
+-web.xml
+
+session implicit object
+-----------------------
+- session is an implicit object of HttpSession interface which is used to track the user
+  session using attributes.
+
+Refer
+- session1.html
+- JspSession1.jsp
+- JspSession2.jsp
+
+pageContext implicit object
+---------------------------
+pageContext is an implicit object of PageContext class which is used to set, get and 
+remove attributes from the following scopes.
+- page
+- request
+- session
+- application
+
+Default scope is page scope
+Refer programs
+-pageContext.html
+-PageContext1.jsp
+-PageContext2.jsp
+
+Handling exceptions in JSP
+--------------------------
+In JSP, if an exception occurs in a page, we can redirect to JSP another page to handle 
+the exception
+eg:
+	<%@page errorPage="ShowErrors.jsp" %>
+
+Example Application
+-------------------
+- Create an HTML file error.html in WebProject
+	Refer error.html
+- Create a JSP page ErrorPage.jsp
+	Refer ErrorPage.jsp
+- Create a JSP page ShowErrors.jsp in WebProj
+	Refer ShowErrors.jsp
+- Run application in error.html
+
+JSP Action Tags
+---------------
+<jsp:include>
+<jsp:forward>
+<jsp:param>
+<jsp:useBean>
+<jsp:setProperty>
+<jsp:getProperty>
+
+<jsp:include> vs <jsp:forward>
+------------------------------
+These tags are used to include the other JSP pages
+
+Refer programs
+	- First.jsp
+	- Second.jsp
+	- Third.jsp
+
+In case of <jsp:include> the response is handled by all the pages where as incase of
+<jsp:forward> the response is handled by only last page.
+
+<%@include ... %> directive vs <jsp:include>
+---------------------------------------------
+- <%@include ... %> directive(static in nature) includes the resource at translation time where as incase of
+  <jsp:include> (dynamic in nature) the resource is included during request processing time.
+
+<jsp:param> tag
+---------------
+It is used to send the parameters from one page to another page
+
+Refer programs
+	- JSPParam1.jsp
+	- JSPParam2.jsp
+
+Using JavaBeans in JSP
+----------------------
+A JavaBean is a class with private properties and public setters and getters methods for
+every property
+
+eg:
+public class Employee
+{
+   private int eno;
+   private String ename;
+   private double salary;
+   public void setEno()
+   {
+ 	this.eno = eno;
+   }
+   public int getEno()
+   {
+	return eno;
+   }
+   .......
+   .......
+}
+
+<jsp:useBean id="emp" class="Employee"/>
+<jsp:setProperty name="emp" property="*"/>
+
+	Refer screenshot-26
+
+Example application
+-------------------
+- Create a package"mypack" in WebProject
+- Create a javabean class "Book" in mypack package
+	refer Book.java
+	
+	Generating Getters and Setters
+	------------------------------
+	Right click on Book.java and select Source->Generate Getters and Setters
+
+- Create a welcome page "book.html" in WebProject
+	book.html
+- Create a jsp page SaveBook.jsp in WebProject
+
+- Create a jsp page DisplayBook.jsp in WebProject
+
+Custom tags in JSP
+------------------
+Custom tags are used to create user defined tags in JSP
+
+- A Tag Handler class
+- A tld file
+- A JSP file
+
+Tag Handler class
+-----------------
+public class MyTagHandler extends TagSupport //TagSupport is a concrete class
+{
+    public int doStartTag()
+    {
+	..........
+    }
+    public int doEndTag()
+    {
+	........
+    }
+}
+
+
+<mytag> ==> doStartTag()
+</mytag> ==> doEndTag()
+
+A tld file
+----------
+mytld.tld (create in WEB-INF folder)
+---------
+<taglib>
+	<tag>
+	    <name>mytag</name>
+	    <tagclass>MyTagHandler</tagclass>
+	</tag>
+</taglib>
+
+A JSP file
+----------
+<%@taglib uri="/WEB-INF/mytld.tld" prefix="x" %>
+<x:mytag>....</x:mytag>
+
+Create a custom tag <date> which is used to display current dat and time onto the browser
+
+- Creata a tag handler class "DateHandler" in mypack package
+- Create a tld file "date.tld" in WEB-INF folder
+- Create a JSP page "date.jsp" in WebContent
+
+JSTL
+----
+- Stands for JSP Standard Template Library
+- JSTL tags are created using Custom Tags by Apache company.
+- To use JSTL tags we need to copy "jstl-1.2.jar" into WebProject/WebContent/WEB-INF/lib
+  folder
+  Types of JSTL Types
+  -------------------
+  - Core tags
+  - sql tags
+
+Refer programs
+- JSTLCore1.jsp
+- JSTLCore2.jsp
+- JSTLCore3.jsp
+- JSTLCore4.jsp
+- JSTLSQL.jsp
+
+jQuery validations in JSP
+-------------------------
+- Validations are used to check wheteher the given input by user is correct based on the 
+  given specifications/rules.
+
+- To use jQuery and jQuery validations in web applications we need to copy jquery-3.2.1.min.js 
+  and jquery.validate.min.js into WebProject/WebContent folder.
+
+- Create Customer table in MySQL
+	mysql>create table Customer (username varchar(10),password varchar(10),age int(3),
+	email varchar(20));
+
+- Create a Java bean class "Customer" in mypack package
+
+- Create a JSP page "customer.jsp" in WebContent
+
+- Create a JSP apge "SaveCustomer.jsp" in WebContent
+
+- Create a class "InsertCustomer" in mypcak package
+
+- Create a jsp page "displayCustomer.jsp" in WebContent
+
+- Run the application customer.jsp
+
+
+WEB SERVICES
+------------
+- Web Services are open standard based web applications that interact with other web 
+  applications for the purpose of exchanging data
+
+- Web Services is a distributed technology achieves interoperability(portability) across
+  different technologies like Java, .NET, PHP etc.
+
+- A website is meant for human consumption
+
+- A webservice is meant for code consumption and application consumption
+
+Need of Webservices:
+--------------------
+ Check screenshot
+
+Types of Web Services
+---------------------
+- SOAP
+- REST
+
+SOAP Web Services
+-----------------
+Components
+----------
+-SOAP => Simple Object Access Protocol
+		-encode & decode different machines
+		-used to transport the data from one machine to another machine over network
+
+-UDDI => Universal Description, Discovery and Integration
+		-used to publish web services
+
+-WSDL => Web Services Description Language
+		-It contains the contract of web service
+			-methods
+			-arguments
+			-return type
+Apache Axis2 tool
+-----------------
+Axis2 tool is used to develop SOAP based web services
+
+Go to axis.apache.org
+->Releases
+	-Binary distributions
+		-axis2-1.7.6-bin.zip (click to download)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
